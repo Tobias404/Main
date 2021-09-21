@@ -3,7 +3,7 @@ int valgtDrink = -1, drinkHover;
 int skaerm = 1;
 int aktiv;
 
-bubble[] bubbles = new bubble[30];
+bubble[] bubbles = new bubble[35];
 screens screens;
 setup setup;
 
