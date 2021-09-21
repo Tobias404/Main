@@ -42,7 +42,7 @@ class screens {
     tint(255, fade);
     image(vaelgDinDrink, width/2-vaelgDinDrink.width/2, 12);
 
-    if (millis() > aktiv+7000) {
+    if (millis() > aktiv+20000) {
       fade = lerp(fade, 0, 0.1);
       sliderTransition = lerp(sliderTransition, 3000, 0.1);
       x = lerp(x, 0, 0.1);
