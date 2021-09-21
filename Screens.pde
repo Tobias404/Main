@@ -108,6 +108,8 @@ class screens {
     textSize(60);
     if (valgtDrink >= 0 && valgtDrink <= 10) {
       text((drinks[valgtDrink][0]), 50, height/3.5+180+50);
+      textSize(50);
+      text(drinks[valgtDrink][1], 50, height/3.5+180+125);
     }
   }
 
