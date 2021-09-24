@@ -100,16 +100,11 @@ class screens {
         stroke(220);
       }
       rect(width/2-11*170+i*340-x-xDragged+sliderTransition, height/3.5-150, 300, 300, 50);
-      image(vand, width/2-11*170+i*340-x-xDragged+sliderTransition+150-vand.width/2, height/3.5-150+150-vand.height/2);
+      image(drinkBillederArray[i], width/2-11*170+i*340-x-xDragged+sliderTransition+150-drinkBillederArray[i].width/2, height/3.5-150+150-drinkBillederArray[i].height/2);
     }
 
-    fill(255, fade);
-    textAlign(LEFT, CENTER);
-    textSize(60);
     if (valgtDrink >= 0 && valgtDrink <= 10) {
-      text((drinks[valgtDrink][0]), 50, height/3.5+180+50);
-      textSize(50);
-      text(drinks[valgtDrink][1], 50, height/3.5+180+125);
+      image(drinkInfoBilleder[valgtDrink], 0, height-drinkInfoBilleder[valgtDrink].height);
     }
   }
 

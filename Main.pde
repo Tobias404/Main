@@ -3,11 +3,15 @@ int valgtDrink = -1, drinkHover;
 int skaerm = 1;
 int aktiv;
 
-bubble[] bubbles = new bubble[50];
+bubble[] bubbles = new bubble[30];
 screens screens;
 setup setup;
 
-String[][] drinks = new String[11][4];
+String[] drinkBillederNavne = {"vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png"};
+PImage[] drinkBillederArray = new PImage[11];
+
+String[] drinkInfo = {"drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png"};
+PImage[] drinkInfoBilleder = new PImage[11];
 
 PImage baggrund;
 PImage vaelgDinDrink;
