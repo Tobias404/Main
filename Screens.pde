@@ -84,7 +84,6 @@ class screens {
     fill(0, 80*fade/255);
     noStroke();
     rect(0, height/3.5-180, width, 360);
-    rect(20, height/3.5+180+20, width/2-40, height-(height/3.50+180)-40, 50);
 
     strokeWeight(20);
     for (int i = 0; i < 11; i++) {
@@ -93,8 +92,8 @@ class screens {
       }
 
       if (valgtDrink == i) {
-        fill(200);
-        stroke(165);
+        fill(255);
+        stroke(255, g, 0);
       } else {
         fill(255);
         stroke(220);

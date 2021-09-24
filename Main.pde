@@ -3,6 +3,8 @@ int valgtDrink = -1, drinkHover;
 int skaerm = 1;
 int aktiv;
 
+int r, g, b;
+
 bubble[] bubbles = new bubble[30];
 screens screens;
 setup setup;
@@ -46,7 +48,12 @@ void draw() {
     screens.skaenk();
   }
 
+  if (mousePressed) {
+    aktiv = millis();
+  }
+
   println(frameRate);
+  println(g);
 }
 
 void mouseReleased() {
@@ -63,6 +70,11 @@ void mouseReleased() {
   yStart = 0;
 }
 
-void mousePressed() {
-  aktiv = millis();
+void keyPressed() {
+  if (key == 'w') {
+    g += 5;
+  }
+  if (key == 's') {
+    g -= 5;
+  }
 }
