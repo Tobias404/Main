@@ -98,8 +98,8 @@ class screens {
       }
 
       if (valgtDrink == i) {
-        fill(255);
-        stroke(255, g, 0);
+        fill(200);
+        stroke(165);
       } else {
         fill(255);
         stroke(220);

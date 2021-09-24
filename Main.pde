@@ -4,8 +4,6 @@ int skaerm = 1;
 int aktiv;
 float drinkCheck = 100;
 
-int r, g, b;
-
 bubble[] bubbles = new bubble[30];
 screens screens;
 setup setup;
@@ -70,13 +68,4 @@ void mouseReleased() {
 
   xStart = 0;
   yStart = 0;
-}
-
-void keyPressed() {
-  if (key == 'w') {
-    g += 5;
-  }
-  if (key == 's') {
-    g -= 5;
-  }
 }
