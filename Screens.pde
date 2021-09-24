@@ -56,6 +56,7 @@ class screens {
         yVelkommen = -velkommen.height-100;
         fade = 0;
         valgtDrink = -1;
+        drinkCheck = 100;
       }
     } else {
       fade = lerp(fade, 255, 0.1);
@@ -85,9 +86,14 @@ class screens {
     noStroke();
     rect(0, height/3.5-180, width, 360);
 
+    if (drinkCheck < 99.8) {
+      drinkCheck = lerp(drinkCheck, 100, 0.1);
+      x = lerp(x, -1600+valgtDrink*320+(valgtDrink-5)*20, 0.1);
+    }
+
     strokeWeight(20);
     for (int i = 0; i < 11; i++) {
-      if (mouseX > width/2-11*170+i*340-x-xDragged && mouseX < width/2-11*170+i*340-x-xDragged+300 && mouseY > height/3.5-150 && mouseY < height/3.5+150) {
+      if (mouseX > width/2-11*170+i*340-x-xDragged+20 && mouseX < width/2-11*170+i*340-x-xDragged+300+20 && mouseY > height/3.5-150 && mouseY < height/3.5+150) {
         drinkHover = i;
       }
 
@@ -98,8 +104,8 @@ class screens {
         fill(255);
         stroke(220);
       }
-      rect(width/2-11*170+i*340-x-xDragged+sliderTransition, height/3.5-150, 300, 300, 50);
-      image(drinkBillederArray[i], width/2-11*170+i*340-x-xDragged+sliderTransition+150-drinkBillederArray[i].width/2, height/3.5-150+150-drinkBillederArray[i].height/2);
+      rect(width/2-11*170+i*340-x-xDragged+sliderTransition+20, height/3.5-150, 300, 300, 50);
+      image(drinkBillederArray[i], width/2-11*170+i*340-x-xDragged+sliderTransition+150-drinkBillederArray[i].width/2+20, height/3.5-150+150-drinkBillederArray[i].height/2);
     }
 
     if (valgtDrink >= 0 && valgtDrink <= 10) {

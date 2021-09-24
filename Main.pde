@@ -2,6 +2,7 @@ float xStart, yStart, xBuffer, xDragged, x;
 int valgtDrink = -1, drinkHover;
 int skaerm = 1;
 int aktiv;
+float drinkCheck = 100;
 
 int r, g, b;
 
@@ -50,15 +51,16 @@ void draw() {
 
   if (mousePressed) {
     aktiv = millis();
+    drinkCheck = 100;
   }
 
   println(frameRate);
-  println(g);
 }
 
 void mouseReleased() {
   if (dist(mouseX, mouseY, xStart, yStart) < 20 && mouseY > height/3.5-150 && mouseY < height/3.5+150) {
     valgtDrink = drinkHover;
+    drinkCheck = 0;
   }
 
   if (xDragged != 0) {
