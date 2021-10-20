@@ -45,6 +45,9 @@ class setup {
     juice = loadImage("juice.png");
     velkommen = loadImage("velkommen.png");
     tryk = loadImage("tryk.png");
+    fortsaet = loadImage("fortsæt.png");
+    tilbage = loadImage("tilbage.png");
+    stortDrinkKort = loadImage("stortDrinkKort.png");
 
     for (int i = 0; i < bubbles.length; i++) {
       bubbles[i] = new bubble();

@@ -21,11 +21,18 @@ PImage juice;
 PImage velkommen;
 PImage tryk;
 PImage vand;
+PImage fortsaet;
+PImage tilbage;
+PImage stortDrinkKort;
 
 PFont mockhand;
 
+boolean fortsaetTilSkaenk = false;
+boolean tilbageTilDrinks = false;
+
 void setup() {
-  fullScreen(P3D);
+  //fullScreen(P3D);
+  size(1920, 1080, P3D);
   setup = new setup();
   setup.load();
 }
@@ -53,6 +60,22 @@ void draw() {
   }
 
   println(frameRate);
+}
+
+void mousePressed() {
+  if (skaerm == 2) {
+    if (mouseX > width-fortsaet.width-20 && mouseX < width-20 && mouseY > height-fortsaet.height-20 && mouseY < height-20 && valgtDrink != -1) {
+      fortsaetTilSkaenk = true;
+      tilbageTilDrinks = false;
+    }
+  }
+
+  if (skaerm == 3) {
+    if (mouseX > 20 && mouseX < tilbage.width+20 && mouseY > height-tilbage.height-20 && mouseY < height-20) {
+      tilbageTilDrinks = true;
+      fortsaetTilSkaenk = false;
+    }
+  }
 }
 
 void mouseReleased() {
