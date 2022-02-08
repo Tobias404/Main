@@ -23,8 +23,14 @@ PImage velkommen;
 PImage tryk;
 PImage vand;
 PImage videre;
+PImage fortsaet;
+PImage tilbage;
+PImage stortDrinkKort;
 
 PFont mockhand;
+
+boolean fortsaetTilSkaenk = false;
+boolean tilbageTilDrinks = false;
 
 void setup() {
   fullScreen(P3D);
@@ -52,6 +58,22 @@ void draw() {
   if (mousePressed) {
     aktiv = millis();
     drinkCheck = 100;
+  }
+}
+
+void mousePressed() {
+  if (skaerm == 2) {
+    if (mouseX > width-fortsaet.width-20 && mouseX < width-20 && mouseY > height-fortsaet.height-20 && mouseY < height-20 && valgtDrink != -1) {
+      fortsaetTilSkaenk = true;
+      tilbageTilDrinks = false;
+    }
+  }
+
+  if (skaerm == 3) {
+    if (mouseX > 20 && mouseX < tilbage.width+20 && mouseY > height-tilbage.height-20 && mouseY < height-20) {
+      tilbageTilDrinks = true;
+      fortsaetTilSkaenk = false;
+    }
   }
 }
 
