@@ -25,17 +25,6 @@ class setup {
     //drinks[8][0] = "Vodka Cola - 5,0%";
     //drinks[9][0] = "Likør 43 og Juice - 5,0%";
     //drinks[10][0] = "Astronaut - 5,0%";
-    //drinks[0][1] = "Vand - 200 mL";
-    //drinks[1][1] = "Vodka - 17 mL";
-    //drinks[2][1] = " Vodka- 26.5 mL";
-    //drinks[3][1] = "Licor 43 - 32.5 mL";
-    //drinks[4][1] = "Vodka - 26.5 mL";
-    //drinks[5][1] = "Malibu - 48 mL";
-    //drinks[6][1] = "Malibu - 48 mL";
-    //drinks[7][1] = "Råstoff - 61 mL";
-    //drinks[8][1] = "Vodka -26.5 mL";
-    //drinks[9][1] = "Licor 43 - 32.5 mL";
-    //drinks[10][1] = "Råstoff - 61 mL";
 
     frameRate(60);
 
@@ -45,6 +34,7 @@ class setup {
     juice = loadImage("juice.png");
     velkommen = loadImage("velkommen.png");
     tryk = loadImage("tryk.png");
+    videre = loadImage("videre.png");
 
     for (int i = 0; i < bubbles.length; i++) {
       bubbles[i] = new bubble();

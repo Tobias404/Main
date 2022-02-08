@@ -3,12 +3,13 @@ int valgtDrink = -1, drinkHover;
 int skaerm = 1;
 int aktiv;
 float drinkCheck = 100;
+String[] drinks = {"http://10.113.9.124/STRING?M1=3.4&M6=2.4&M4=34.2", "http://10.113.9.124/STRING?M1=5.35&M4=34.7", "http://10.113.9.124/STRING?M6=6.5&M3=33.5", "http://10.113.9.124/STRING?M1=5.3&M2=34.7", "http://10.113.9.124/STRING?M4=9.6&M3=30.4", "http://10.113.9.124/STRING?M5=9.6&M7=30.4", "http://10.113.9.124/STRING?M8=12.2&M2=27.8", "http://10.113.9.124/STRING?M1=5.3&M7=34.7", "http://10.113.9.124/STRING?M6=6.5&M4=33.5", "http://10.113.9.124/STRING?M8=12.2&M2=27.8", "http://10.113.9.124/STRING?M0=40&M1=40&M2=40&M3=40"};
 
 bubble[] bubbles = new bubble[30];
 screens screens;
 setup setup;
 
-String[] drinkBillederNavne = {"vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png", "vand.png"};
+String[] drinkBillederNavne = {"harvey.png", "screwdriver.png", "koldskaal.png", "sprite.png", "pina.png", "bounty.png", "filur.png", "vodkacola.png", "likoer.png", "astronaut.png", "vand.png"};
 PImage[] drinkBillederArray = new PImage[11];
 
 String[] drinkInfo = {"drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png"};
@@ -21,6 +22,7 @@ PImage juice;
 PImage velkommen;
 PImage tryk;
 PImage vand;
+PImage videre;
 
 PFont mockhand;
 
@@ -51,13 +53,13 @@ void draw() {
     aktiv = millis();
     drinkCheck = 100;
   }
-
-  println(frameRate);
 }
 
 void mouseReleased() {
   if (dist(mouseX, mouseY, xStart, yStart) < 20 && mouseY > height/3.5-150 && mouseY < height/3.5+150) {
     valgtDrink = drinkHover;
+    println(drinks[drinkHover]);
+    //String[] sendRequest = loadStrings(drinks[drinkHover]);
     drinkCheck = 0;
   }
 

@@ -5,6 +5,7 @@ class screens {
   float yVelkommen = -velkommen.height-100;
   float fade = 0;
   float sliderTransition = 0;
+  float ySkaenkKnap = height/2;
   boolean trykket1 = false;
 
   void velkommen() {
@@ -46,6 +47,7 @@ class screens {
       fade = lerp(fade, 0, 0.1);
       sliderTransition = lerp(sliderTransition, 3000, 0.1);
       x = lerp(x, 0, 0.1);
+      ySkaenkKnap = lerp(ySkaenkKnap, height/2, 0.1);
       lerpCheck = lerp(lerpCheck, 100, 0.1);
       if (lerpCheck > 99.8) {
         skaerm = 1;
@@ -61,6 +63,9 @@ class screens {
     } else {
       fade = lerp(fade, 255, 0.1);
       sliderTransition = lerp(sliderTransition, 0, 0.1);
+      if (valgtDrink >= 0 && valgtDrink <= 10) {
+        ySkaenkKnap = lerp(ySkaenkKnap, 0, 0.1);
+      }
     }
 
     if (mousePressed && mouseY > height/3.5-150 && mouseY < height/3.5+150 || mousePressed && mouseY > height/3.5+150 || mousePressed && mouseY < height/3.5-150) {
@@ -111,6 +116,8 @@ class screens {
     if (valgtDrink >= 0 && valgtDrink <= 10) {
       image(drinkInfoBilleder[valgtDrink], 0, height-drinkInfoBilleder[valgtDrink].height);
     }
+
+    image(videre, width-width/4-videre.width/2, height-drinkInfoBilleder[0].height/2-videre.height/2+ySkaenkKnap);
   }
 
   void skaenk() {
