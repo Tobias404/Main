@@ -13,7 +13,7 @@ setup setup;
 String[] drinkBillederNavne = {"harvey.png", "screwdriver.png", "koldskaal.png", "sprite.png", "pina.png", "bounty.png", "filur.png", "vodkacola.png", "likoer.png", "astronaut.png", "vand.png"};
 PImage[] drinkBillederArray = new PImage[11];
 
-String[] drinkInfo = {"drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png", "drinkInfo1.png"};
+String[] drinkInfo = {"appelsin.png", "hylde.png", "drinkInfo.png", "drinkInfo.png", "drinkInfo.png", "drinkInfo.png", "drinkInfo1.png", "drinkInfo.png", "drinkInfo.png", "drinkInfo.png", "drinkInfo.png"};
 PImage[] drinkInfoBilleder = new PImage[11];
 
 PImage baggrund;
