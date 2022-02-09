@@ -13,7 +13,7 @@ setup setup;
 String[] drinkBillederNavne = {"harvey.png", "screwdriver.png", "koldskaal.png", "sprite.png", "pina.png", "bounty.png", "filur.png", "vodkacola.png", "likoer.png", "astronaut.png", "vand.png"};
 PImage[] drinkBillederArray = new PImage[11];
 
-String[] drinkInfo = {"appelsin.png", "hylde.png", "drinkInfo.png", "drinkInfo.png", "drinkInfo.png", "drinkInfo.png", "drinkInfo1.png", "drinkInfo.png", "drinkInfo.png", "drinkInfo.png", "drinkInfo.png"};
+String[] drinkInfo = {"drinkInfo1.png", "drinkInfo2.png", "drinkInfo3.png", "drinkInfo4.png", "drinkInfo5.png", "drinkInfo6.png", "drinkInfo7.png", "drinkInfo8.png", "drinkInfo9.png", "drinkInfo10.png", "drinkInfo11.png"};
 PImage[] drinkInfoBilleder = new PImage[11];
 
 PImage baggrund;
@@ -72,6 +72,7 @@ void mousePressed() {
     }
   }
 
+
   if (skaerm == 3) {
     if (mouseX > 20 && mouseX < tilbage.width+20 && mouseY > height-tilbage.height-20 && mouseY < height-20) {
       tilbageTilDrinks = true;
@@ -92,9 +93,10 @@ void mouseReleased() {
   }
 
   if (dist(mouseX, mouseY, xStart, yStart) < 20 && dist(mouseX, mouseY, width-690, height/2) < screens.skaenkButtonSize/2 && millis() > skaenkTid) {
-    //String[] sendRequest = loadStrings(drinks[drinkHover]);
-    println(drinks[drinkHover]);
-    skaenkTid = millis()+40000;
+    //String[] sendRequest = loadStrings(drinks[valgtDrink]);
+    println(drinks[valgtDrink]);
+    skaenkTid = millis()+30000;
+    screens.skaenkKnapTryk = true;
   }
 
   if (xDragged != 0) {

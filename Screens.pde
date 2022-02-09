@@ -8,6 +8,7 @@ class screens {
   float largeDrinkCardX = 0;
   float skaenkButtonSize = 0;
   boolean trykket1 = false;
+  boolean skaenkKnapTryk = false;
 
   void velkommen() {
     if (mousePressed) {
@@ -140,10 +141,13 @@ class screens {
     noStroke();
     rect(30+largeDrinkCardX, 30, 480, 800, 50);
     circle(width-690, height/2, skaenkButtonSize);
+    if (skaenkKnapTryk) {
+      circle(width-690, height/2, skaenkButtonSize*(1-(float(skaenkTid-millis())/30000.0)));
+    }
     image(skaenk, width-690-skaenk.width/2*(skaenkButtonSize/(height-height/3)), height/2-skaenk.height/2*(skaenkButtonSize/(height-height/3)), skaenk.width*(skaenkButtonSize/(height-height/3)), skaenk.height*(skaenkButtonSize/(height-height/3)));
     image(drinkBillederArray[valgtDrink], 20+250-drinkBillederArray[valgtDrink].width/2*1.5+largeDrinkCardX, 20+stortDrinkKort.height/2-drinkBillederArray[valgtDrink].height/2*1.5, drinkBillederArray[valgtDrink].width*1.5, drinkBillederArray[valgtDrink].height*1.5);
 
-    if (millis() > aktiv+20000) {
+    if (millis() > aktiv+20000 && !skaenkKnapTryk) {
       fade = lerp(fade, 0, 0.1);
       largeDrinkCardX = lerp(largeDrinkCardX, -600, 0.1);
       skaenkButtonSize = lerp(skaenkButtonSize, 0, 0.1);
@@ -162,7 +166,11 @@ class screens {
       if (!tilbageTilDrinks) {
         fade = lerp(fade, 255, 0.1);
         sliderTransition = lerp(sliderTransition, 0, 0.1);
-        skaenkButtonSize = lerp(skaenkButtonSize, height-height/3, 0.1);
+        if (!skaenkKnapTryk) {
+          skaenkButtonSize = lerp(skaenkButtonSize, height-height/3, 0.1);
+        } else {
+          skaenkButtonSize = lerp(skaenkButtonSize, height-height/2, 0.1);
+        }
         largeDrinkCardX = lerp(largeDrinkCardX, 0, 0.1);
       }
     }
@@ -177,6 +185,12 @@ class screens {
         sliderTransition = 2200;
         lerpCheck = 0;
         drinkCheck = 0;
+      }
+    }
+
+    if (skaenkKnapTryk) {
+      if (millis() > skaenkTid) {
+        screens.skaenkKnapTryk = false;
       }
     }
   }
