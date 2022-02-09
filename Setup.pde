@@ -17,6 +17,7 @@ class setup {
     frameRate(60);
 
     baggrund = loadImage("baggrund.jpg");
+    baggrund.resize(width, height);
     vaelgDinDrink = loadImage("vaelgDinDrink.png");
     frugt = loadImage("frugt.png");
     juice = loadImage("juice.png");

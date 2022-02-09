@@ -128,7 +128,7 @@ class screens {
 
       if (valgtDrink >= 0 && valgtDrink <= 10) {
         image(drinkInfoBilleder[valgtDrink], 0, height-drinkInfoBilleder[valgtDrink].height);
-        image(fortsaet, width-fortsaet.width-20, height-fortsaet.height-20);
+        image(fortsaet, width-drinkInfoBilleder[0].width/2-fortsaet.width/2, height-drinkInfoBilleder[0].height/2-fortsaet.height/2);
       }
     }
   }
