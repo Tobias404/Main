@@ -136,11 +136,11 @@ class screens {
   void skaenk() {
     tint(255, fade);
     image(tilbage, 20, height-tilbage.height-20);
-    fill(255);
-    stroke(220);
-    strokeWeight(20*skaenkButtonSize/(height-height/3));
+    fill(0, 80*fade/255);
+    noStroke();
     rect(30+largeDrinkCardX, 30, 480, 800, 50);
     circle(width-690, height/2, skaenkButtonSize);
+    image(skaenk, width-690-skaenk.width/2*(skaenkButtonSize/(height-height/3)), height/2-skaenk.height/2*(skaenkButtonSize/(height-height/3)), skaenk.width*(skaenkButtonSize/(height-height/3)), skaenk.height*(skaenkButtonSize/(height-height/3)));
     image(drinkBillederArray[valgtDrink], 20+250-drinkBillederArray[valgtDrink].width/2*1.5+largeDrinkCardX, 20+stortDrinkKort.height/2-drinkBillederArray[valgtDrink].height/2*1.5, drinkBillederArray[valgtDrink].width*1.5, drinkBillederArray[valgtDrink].height*1.5);
 
     if (millis() > aktiv+20000) {
