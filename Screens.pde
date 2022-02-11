@@ -81,56 +81,68 @@ class screens {
           drinkCheck = 100;
         }
       }
+    }
 
-      if (mousePressed && mouseY > height/3.5-150 && mouseY < height/3.5+150 || mousePressed && mouseY > height/3.5+150 || mousePressed && mouseY < height/3.5-150) {
-        if (xStart == 0) {
-          xStart = mouseX;
-          yStart = mouseY;
-        }
+    if (mousePressed && mouseY > height/3.5-150 && mouseY < height/3.5+150 || mousePressed && mouseY > height/3.5+150 || mousePressed && mouseY < height/3.5-150) {
+      if (xStart == 0) {
+        xStart = mouseX;
+        yStart = mouseY;
+      }
 
-        if (yStart > height/3.5-150 && yStart < height/3.5+150) {
-          xDragged = xStart-mouseX;
-        }
+      if (yStart > height/3.5-150 && yStart < height/3.5+150) {
+        xDragged = xStart-mouseX;
+      }
 
-        x = constrain(x, -1700, 1700);
+      x = constrain(x, -1700, 1700);
+    } else {
+      if (x >= 1700 || x <= -1700) {
+        xDragged = lerp(xDragged, 0, 0.5);
       } else {
-        if (x >= 1700 || x <= -1700) {
-          xDragged = lerp(xDragged, 0, 0.5);
-        } else {
-          xDragged = 0;
-        }
+        xDragged = 0;
+      }
+    }
+
+    fill(0, 80*fade/255);
+    noStroke();
+    rect(0, height/3.5-180, width, 360);
+
+    stroke(0, 80*fade/255);
+    strokeWeight(380);
+    float scrollL = constrain(x+xDragged-300, -1700, 1700);
+    float scrollR = constrain(x+xDragged+300, -1700, 1700);
+    scrollL = map(scrollL, -1700, 1700, 50, width-100);
+    scrollR = map(scrollR, -1700, 1700, 100, width-50);
+    line(scrollL, height/3.5, scrollR, height/3.5);
+    noStroke();
+
+    println(x);
+    println(xDragged);
+
+    if (drinkCheck < 99.8) {
+      drinkCheck = lerp(drinkCheck, 100, 0.1);
+      x = lerp(x, -1600+valgtDrink*320+(valgtDrink-5)*20, 0.1);
+    }
+
+    strokeWeight(20);
+    for (int i = 0; i < 11; i++) {
+      if (mouseX > width/2-11*170+i*340-x-xDragged+20 && mouseX < width/2-11*170+i*340-x-xDragged+300+20 && mouseY > height/3.5-150 && mouseY < height/3.5+150) {
+        drinkHover = i;
       }
 
-      fill(0, 80*fade/255);
-      noStroke();
-      rect(0, height/3.5-180, width, 360);
-
-      if (drinkCheck < 99.8) {
-        drinkCheck = lerp(drinkCheck, 100, 0.1);
-        x = lerp(x, -1600+valgtDrink*320+(valgtDrink-5)*20, 0.1);
+      if (valgtDrink == i) {
+        fill(200);
+        stroke(165);
+      } else {
+        fill(255);
+        stroke(220);
       }
+      rect(width/2-11*170+i*340-x-xDragged+sliderTransition+20, height/3.5-150, 300, 300, 50);
+      image(drinkBillederArray[i], width/2-11*170+i*340-x-xDragged+sliderTransition+150-drinkBillederArray[i].width/2+20, height/3.5-150+150-drinkBillederArray[i].height/2);
+    }
 
-      strokeWeight(20);
-      for (int i = 0; i < 11; i++) {
-        if (mouseX > width/2-11*170+i*340-x-xDragged+20 && mouseX < width/2-11*170+i*340-x-xDragged+300+20 && mouseY > height/3.5-150 && mouseY < height/3.5+150) {
-          drinkHover = i;
-        }
-
-        if (valgtDrink == i) {
-          fill(200);
-          stroke(165);
-        } else {
-          fill(255);
-          stroke(220);
-        }
-        rect(width/2-11*170+i*340-x-xDragged+sliderTransition+20, height/3.5-150, 300, 300, 50);
-        image(drinkBillederArray[i], width/2-11*170+i*340-x-xDragged+sliderTransition+150-drinkBillederArray[i].width/2+20, height/3.5-150+150-drinkBillederArray[i].height/2);
-      }
-
-      if (valgtDrink >= 0 && valgtDrink <= 10) {
-        image(drinkInfoBilleder[valgtDrink], 0, height-drinkInfoBilleder[valgtDrink].height);
-        image(fortsaet, width-drinkInfoBilleder[0].width/2-fortsaet.width/2, height-drinkInfoBilleder[0].height/2-fortsaet.height/2);
-      }
+    if (valgtDrink >= 0 && valgtDrink <= 10) {
+      image(drinkInfoBilleder[valgtDrink], 0, height-drinkInfoBilleder[valgtDrink].height);
+      image(fortsaet, width-drinkInfoBilleder[0].width/2-fortsaet.width/2, height-drinkInfoBilleder[0].height/2-fortsaet.height/2);
     }
   }
 

@@ -5,6 +5,7 @@ int aktiv;
 float drinkCheck = 100;
 //String[] drinks = {"http://10.113.9.124/STRING?M1=3.4&M6=2.4&M4=34.2", "http://10.113.9.124/STRING?M1=5.35&M4=34.7", "http://10.113.9.124/STRING?M6=6.5&M3=33.5", "http://10.113.9.124/STRING?M1=5.3&M2=34.7", "http://10.113.9.124/STRING?M4=9.6&M3=30.4", "http://10.113.9.124/STRING?M5=9.6&M7=30.4", "http://10.113.9.124/STRING?M8=12.2&M2=27.8", "http://10.113.9.124/STRING?M1=5.3&M7=34.7", "http://10.113.9.124/STRING?M6=6.5&M4=33.5", "http://10.113.9.124/STRING?M8=12.2&M2=27.8", "http://10.113.9.124/STRING?M0=40&M1=40&M2=40&M3=40"};
 String[] drinks = {"http://10.113.9.124/STRING?M0=4.8&M1=27.2", "http://10.113.9.124/STRING?M2=4.8&M1=27.3", "", "", "", "", "", "", "", "", "http://10.113.9.124/STRING?M0=3&M1=3&M2=3"};
+String[] drinkNavne = {"Harvey Wallbanger 43", "Screwdriver", "Koldskål Drink", "Vodka Sprite", "Pina Colada", "Sunset Cola", "Flad Filur", "Vodka Cola", "Juice 43", "Astronaut", "Vand"};
 
 bubble[] bubbles = new bubble[30];
 screens screens;
@@ -87,14 +88,16 @@ void mousePressed() {
 }
 
 void mouseReleased() {
-  if (dist(mouseX, mouseY, xStart, yStart) < 20 && mouseY > height/3.5-150 && mouseY < height/3.5+150) {
-    valgtDrink = drinkHover;
-    drinkCheck = 0;
+  if (skaerm == 2) {
+    if (dist(mouseX, mouseY, xStart, yStart) < 20 && mouseY > height/3.5-150 && mouseY < height/3.5+150) {
+      valgtDrink = drinkHover;
+      drinkCheck = 0;
+    }
   }
 
   if (dist(mouseX, mouseY, xStart, yStart) < 20 && dist(mouseX, mouseY, width-690, height/2) < screens.skaenkButtonSize/2 && millis() > skaenkTid) {
     //String[] sendRequest = loadStrings(drinks[valgtDrink]);
-    println(drinks[valgtDrink]);
+    println("Skænkede en "+drinkNavne[valgtDrink]+" kl. "+nf(hour(), 2)+":"+nf(minute(), 2)+":"+nf(second(), 2));
     skaenkTid = millis()+30000;
     screens.skaenkKnapTryk = true;
   }
